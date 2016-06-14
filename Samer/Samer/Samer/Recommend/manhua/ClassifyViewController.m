@@ -115,8 +115,6 @@
 {
     self.navigationItem.title=self.model.title;
     self.navigationController.navigationBarHidden=NO;
-
-
 }
 
 

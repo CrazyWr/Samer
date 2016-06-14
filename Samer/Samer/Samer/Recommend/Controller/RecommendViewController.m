@@ -22,6 +22,8 @@
 #import "ZFPlayerCell.h"
 
 #import "KKViewController.h"
+#import "CartoonCell.h"
+#import "AllViewController.h"
 
 @interface RecommendViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -33,7 +35,7 @@
 
 @property (strong, nonatomic) NSArray *musicData;
 @property (strong, nonatomic) NSMutableArray *videoData;
-
+@property (strong, nonatomic) NSMutableArray *cartoonData;
 @end
 
 @implementation RecommendViewController
@@ -46,12 +48,15 @@
     
     self.title = @"推荐";
     [self initArrays];
+    [self loadCartoonData];
     [self initTableView];
     
 }
 
 - (void)initArrays{
 
+    self.cartoonData = [[NSMutableArray alloc] init];
+    
     self.sectionTitles = @[@"热点音乐",
                            @"最新漫画",
                            @"热点视频",
@@ -98,10 +103,41 @@
         [model setValuesForKeysWithDictionary:videoList[i]];
         [self.videoData addObject:model];
     }
+}
 
+- (void)loadCartoonData{
+    
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [manager GET:@"http://api.kuaikanmanhua.com/v1/comic_lists/1?offset=1&limit=3" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        [self.cartoonData removeAllObjects];
+        
+        NSDictionary *dicy=[responseObject objectForKey:@"data"];
+        
+        NSArray *arr=[dicy objectForKey:@"comics"];
+        for (int i=0; i<3; i++) {
+            NSDictionary *dic=arr[i];
+            KuaiKanModel *model=[[KuaiKanModel alloc]init];
+            model.comicId=dic[@"id"];
+            [model setValuesForKeysWithDictionary:dic];
+            model.topicTitle=dic[@"topic"][@"title"];
+            model.topicId=dic[@"topic"][@"id"];
+            model.topicUserNickname=dic[@"topic"][@"user"][@"nickname"];
+            model.authorId=dic[@"topic"][@"user"][@"id"];
+            model.avatar_url=dic[@"topic"][@"user"][@"avatar_url"];
+            model.nickname=dic[@"topic"][@"user"][@"nickname"];
+            [self.cartoonData addObject:model];
+        }
+        
+        [self.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 
-//    self.videoData = @[@"http://img.wdjimg.com/image/video/cd47d8370569dbb9b223942674c41785_0_0.jpeg",
-//                       @"http://img.wdjimg.com/image/video/d536b9c09b2681630afcc92222599f0e_0_0.jpeg"];
 }
 
 - (void)initTableView{
@@ -110,6 +146,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    self.tableView.bounces = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.sectionHeaderHeight = 45;
     self.tableView.sectionFooterHeight = 10;
@@ -118,6 +155,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MusicCell" bundle:nil] forCellReuseIdentifier:@"MusicCell"];
     //[self.tableView registerNib:[UINib nibWithNibName:@"VideoCell" bundle:nil] forCellReuseIdentifier:@"VideoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ZFVideoCell" bundle:nil] forCellReuseIdentifier:@"VideoCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CartoonCell" bundle:nil] forCellReuseIdentifier:@"CartoonCell"];
     [self.view addSubview:self.tableView];
     
 }
@@ -179,11 +217,11 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 5;
+        return self.musicData.count;
     }else if (section == 2){
-        return 3;
+        return self.cartoonData.count;
     }else if (section == 3){
-        return 2;
+        return self.videoData.count;
     }else if (section == 4){
         return 5;
     }
@@ -206,14 +244,11 @@
         
     }else if (indexPath.section == 2){
         
-        MusicCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicCell" forIndexPath:indexPath];
+        CartoonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CartoonCell" forIndexPath:indexPath];
+        [cell fillData:self.cartoonData[indexPath.row]];
         return cell;
-
         
     }else if (indexPath.section == 3){
-        
-//        VideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoCell" forIndexPath:indexPath];
-//        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.videoData[indexPath.row]] placeholderImage:[UIImage imageNamed:@"loading_bgView"]];
         
         ZFPlayerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VideoCell" forIndexPath:indexPath];
         // 取到对应cell的model
@@ -259,7 +294,6 @@
         MusicCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MusicCell" forIndexPath:indexPath];
         return cell;
         
-        
     }
     return nil;
 }
@@ -286,6 +320,13 @@
         [self.navigationController pushViewController:musicBarController animated:YES];
 
     }else if (indexPath.section == 2){
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AllViewController *all = [sb instantiateViewControllerWithIdentifier:@"AllViewController"];
+        
+        all.model = self.cartoonData[indexPath.row];
+        
+        [self.navigationController pushViewController:all animated:YES];
         
     }else if (indexPath.section == 3){
         
@@ -324,7 +365,7 @@
     }else if (indexPath.section == 2){
         return 100;
     }else if (indexPath.section == 3){
-        return 360;
+        return 340;
     }else{
         return 120;
     }

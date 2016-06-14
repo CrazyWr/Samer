@@ -20,6 +20,7 @@
 
     [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"KuaiKanDatabase.sqlite"];
     
+    
     return YES;
 }
 

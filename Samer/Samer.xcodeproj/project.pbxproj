@@ -330,6 +330,8 @@
 		82943B171D0EB524002638ED /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82943B161D0EB524002638ED /* Social.framework */; };
 		82943B421D0EBDD5002638ED /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82943B411D0EBDD5002638ED /* Twitter.framework */; };
 		82943B441D0EBDDE002638ED /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82943B431D0EBDDE002638ED /* StoreKit.framework */; };
+		82F4664D1D0FE04300B62E4F /* CartoonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82F4664B1D0FE04300B62E4F /* CartoonCell.m */; };
+		82F4664E1D0FE04300B62E4F /* CartoonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82F4664C1D0FE04300B62E4F /* CartoonCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -808,6 +810,9 @@
 		82943B161D0EB524002638ED /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		82943B411D0EBDD5002638ED /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		82943B431D0EBDDE002638ED /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		82F4664A1D0FE04300B62E4F /* CartoonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartoonCell.h; sourceTree = "<group>"; };
+		82F4664B1D0FE04300B62E4F /* CartoonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartoonCell.m; sourceTree = "<group>"; };
+		82F4664C1D0FE04300B62E4F /* CartoonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartoonCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1653,6 +1658,9 @@
 				8214E79E1D0D12990097AACE /* ZFVideoCell.h */,
 				8214E79F1D0D12990097AACE /* ZFVideoCell.m */,
 				8214E7A01D0D12990097AACE /* ZFVideoCell.xib */,
+				82F4664A1D0FE04300B62E4F /* CartoonCell.h */,
+				82F4664B1D0FE04300B62E4F /* CartoonCell.m */,
+				82F4664C1D0FE04300B62E4F /* CartoonCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2192,6 +2200,7 @@
 				79D5A9601D03181A00BE9A8B /* iconfont-shu.png in Resources */,
 				79D5A98D1D03181A00BE9A8B /* iconfont-yinliangda@3x.png in Resources */,
 				79C827391D042C270091D202 /* sidebar_nav_reading@2x.png in Resources */,
+				82F4664E1D0FE04300B62E4F /* CartoonCell.xib in Resources */,
 				79D5A9811D03181A00BE9A8B /* iconfont-shoucang_s@3x.png in Resources */,
 				82607F3B1CF80562004326E0 /* a (1).png in Resources */,
 				79D5A9521D03181A00BE9A8B /* iconfont-delete.png in Resources */,
@@ -2399,6 +2408,7 @@
 				82607F541CF81D7E004326E0 /* SettingViewController.m in Sources */,
 				79D5A9451D03181A00BE9A8B /* RootViewController.m in Sources */,
 				8214E7F11D0D31EC0097AACE /* CommentViewController.m in Sources */,
+				82F4664D1D0FE04300B62E4F /* CartoonCell.m in Sources */,
 				79D5A9471D03181A00BE9A8B /* ViewController.m in Sources */,
 				79D5A94B1D03181A00BE9A8B /* UIColor+Separate.m in Sources */,
 				8294359B1D0EA794002638ED /* MJRefreshBackNormalFooter.m in Sources */,

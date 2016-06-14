@@ -46,10 +46,7 @@
     [self addHeaderRefresh];
     [self addFooterRefresh];
     
-     [self requestData];
-    
-    
-
+    [self requestData];
     
 }
 
@@ -95,19 +92,6 @@
     //下拉刷新控件添加到数组中
     self.collectionView.header=header;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 -(void)setMyUrl
 {
@@ -277,6 +261,11 @@
     self.navigationController.navigationBarHidden=NO;
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

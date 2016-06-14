@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ApplyViewController.h"
-#import "MainViewController.h"
 
 @protocol stop <NSObject>
 //@property(nonatomic,assign)id <stop>delegate;
@@ -16,16 +14,12 @@
 
 @end
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,EMChatManagerDelegate>{
-
-    EMConnectionState _connectionState;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property(nonatomic,assign)id <stop>delegate;
 
-@property (strong, nonatomic) MainViewController *mainController;
 
 @end
 

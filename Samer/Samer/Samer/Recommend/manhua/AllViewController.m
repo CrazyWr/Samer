@@ -187,7 +187,7 @@ KuaiKanModel *topModel;
     [label addSubview:lineLabel3];
     
     
-    UILabel *textLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 40, self.view.frame.size.width/2, 40)];
+    UILabel *textLabel=[[UILabel alloc]initWithFrame:CGRectMake(10, 40, self.view.frame.size.width/2, 40)];
     textLabel.text=@"漫画列表";
     textLabel.textColor=[UIColor colorWithRed:130%255/255.0 green:130%255/255.0 blue:130%255/255.0 alpha:1];
     textLabel.font=[UIFont systemFontOfSize:13];
@@ -203,7 +203,7 @@ KuaiKanModel *topModel;
     
     //上方返回按钮
     UIButton *backBtn=[[UIButton alloc]initWithFrame:CGRectMake(27, 33, 40, 40)];
-    [backBtn setImage:[UIImage imageNamed:@"back64"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"ZFPlayer_back_full"] forState:UIControlStateNormal];
     [backBtn addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *btnLabel=[[UILabel alloc]initWithFrame:CGRectMake(29, 32, 40, 40)];
@@ -262,7 +262,7 @@ KuaiKanModel *topModel;
     
     [UIView animateWithDuration:0.2 animations:^{
         UILabel *label=[self.view viewWithTag:202];
-        label.frame=CGRectMake(0, 40, self.view.frame.size.width/2, 2);
+        label.frame=CGRectMake(10, 40, self.view.frame.size.width/2, 2);
     }];
 }
 
@@ -360,11 +360,17 @@ KuaiKanModel *topModel;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.tabBarController.tabBar.hidden=NO;
-    self.navigationController.navigationBarHidden=YES;
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBarHidden = YES;
+    
 }
 
-
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    self.tabBarController.tabBar.hidden = NO;
+    self.navigationController.navigationBarHidden = NO;
+    
+}
 
 
 
