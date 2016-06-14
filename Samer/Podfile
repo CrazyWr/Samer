@@ -1,0 +1,17 @@
+xcodeproj 'Samer.xcodeproj'
+
+# Uncomment this line to define a global platform for your project
+platform :ios, ‘7.0’
+
+target 'Samer' do
+
+pod 'AFNetworking'
+pod 'SDWebImage'
+pod 'SVProgressHUD'
+pod 'Masonry'
+pod 'YYModel'
+pod 'MJExtension'
+pod 'FMDB'
+pod 'MagicalRecord'
+pod 'HyphenateFullSDK'
+end

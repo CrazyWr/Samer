@@ -1,0 +1,103 @@
+//
+//  PrefixHeader.pch
+//  Samer
+//
+//  Created by Uthealth0122 on 16/5/27.
+//
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define REDPACKET_AVALABLE
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+//#import "ChatDemoUIDefine.h"
+//#import "EMAlertView.h"
+//#import "TTGlobalUICommon.h"
+//
+//#import "EMSDKFull.h"
+//#import "EaseUI.h"
+
+#define screenFrame [UIScreen mainScreen].bounds
+// 颜色
+
+#define HMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define HMColorRGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+#import "ScrollModel.h"
+
+#import "AFNetworking.h"
+#import "UIKit+AFNetworking.h"
+
+#import "ScrollModel.h"
+
+#import "UIImageView+WebCache.h"
+
+#import "KuaiKanModel.h"
+#import "KuaiKanCollectionViewCell.h"
+
+#import "WebViewController.h"
+#import "AllViewController.h"
+#import "AllTableViewCell.h"
+
+#import "UPStackMenu.h"
+#import "UPStackMenuItem.h"
+//
+//#import "ShouCangViewController.h"
+//#import "ShouCangTableViewCell.h"
+//
+#import "JCAlertView.h"
+
+#import <MagicalRecord/MagicalRecord.h>
+
+#import "SearchCollectionViewCell.h"
+#import "SearchModel.h"
+
+#import "AuthorViewController.h"
+#import "AuthorTableViewCell.h"
+#import "AuthorModel.h"
+
+#import "CommentTableViewCell.h"
+#import "CommentViewController.h"
+
+#import "ClassifyTableViewCell.h"
+#import "ClassifyViewController.h"
+//
+//#import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKConnector/ShareSDKConnector.h>
+//
+//#import <Social/Social.h>
+//
+//
+//#import <ShareSDKUI/ShareSDK+SSUI.h>
+//
+////腾讯开放平台（对应QQ和QQ空间）SDK头文件
+//#import <TencentOpenAPI/TencentOAuth.h>
+//#import <TencentOpenAPI/QQApiInterface.h>
+//
+//
+////新浪微博SDK头文件
+//#import "WeiboSDK.h"
+////新浪微博SDK需要在项目Build Settings中的Other Linker Flags添加"-ObjC"
+
+
+//#import <FXBlurView.h>
+
+
+//屏幕的宽
+#define SCREEN_WIDTH    [UIScreen mainScreen].bounds.size.width
+//屏幕的高
+#define SCREEN_HEIGHT    [UIScreen mainScreen].bounds.size.height
+
+#define DEMO_CALL 1
+
+#endif
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9ABEB519AA8478285EF5A3FB11B97E83C06C00F0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "299e25f4-b48f-450b-b0f8-85e1106bff25++2102" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9ABEB519AA8478285EF5A3FB11B97E83C06C00F0" : 0,
+    "299e25f4-b48f-450b-b0f8-85e1106bff25++2102" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5429C574-9CA7-443D-944A-78869B8BE3DC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9ABEB519AA8478285EF5A3FB11B97E83C06C00F0" : "Samer\/",
+    "299e25f4-b48f-450b-b0f8-85e1106bff25++2102" : "Samer\/Samer\/Samer\/Recommend\/Video\/Categries\/AFNetworking\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Samer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Samer.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.svnchina.com\/svn\/ximalaya",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "299e25f4-b48f-450b-b0f8-85e1106bff25++2102"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/HCo1\/Samer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9ABEB519AA8478285EF5A3FB11B97E83C06C00F0"
+    }
+  ]
+}
