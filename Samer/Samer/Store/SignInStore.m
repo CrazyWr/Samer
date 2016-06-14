@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void)requestWithSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure{
+- (void)requestWithSuccess:(void (^)(id data))success failure:(void (^)(NSError *))failure{
     
     NSDictionary * parameters = @{@"username":self.username,
                                   @"password":self.password,};
@@ -32,31 +32,45 @@
         }
     }];
     
-    [self.manager POST:@"http://120.132.75.203:3307/user/sign_in" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        if ([responseObject[@"code"] intValue] == 0) {
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_queue_create("group", DISPATCH_QUEUE_CONCURRENT);
+    __block id datas = nil;
+    dispatch_group_async(group, queue, ^{
+        [self.manager POST:@"http://120.132.75.203:3307/user/sign_in" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
             
-            UserModel * model = [UserModel sharedUserModel];
-            model.token = responseObject[@"user_token"];
-            model.username = self.username;
-            model.tel = responseObject[@"tel"];
-            model.user_id = responseObject[@"user_id"];
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
-            [self saveDataOfUser];
+            if ([responseObject[@"code"] intValue] == 0) {
+                
+                UserModel * model = [UserModel sharedUserModel];
+                model.token = responseObject[@"user_token"];
+                model.username = self.username;
+                model.tel = responseObject[@"tel"];
+                model.user_id = responseObject[@"user_id"];
+                
+                datas = responseObject;
+            }else{
+                failure([self errorWitherrorResponse:responseObject]);
+            }
             
-            success(responseObject);
-        }else{
-            failure([self errorWitherrorResponse:responseObject]);
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure([self errorWitherrorResponse:error]);
-        
-    }];
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failure([self errorWitherrorResponse:error]);
+            
+        }];
 
+    });
     
+    dispatch_group_async(group, queue, ^{
+        EMError *error = [[EMClient sharedClient] registerWithUsername:@"8001" password:@"111111"];
+        if (error!=nil) {
+            failure([self errorWitherrorResponse:error]);
+        }
+    });
+    
+    dispatch_group_notify(group, queue, ^{
+        [self saveDataOfUser];
+        success(datas);
+    });
 }
 
 //存储用户数据

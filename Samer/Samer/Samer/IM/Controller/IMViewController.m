@@ -7,8 +7,13 @@
 //
 
 #import "IMViewController.h"
+#import "LoginViewController.h"
 
-@interface IMViewController ()
+
+@interface IMViewController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
+
+@property (nonatomic, strong) UIView *networkStateView;
+
 
 @end
 
@@ -19,21 +24,37 @@
     // Do any additional setup after loading the view.
     self.title = @"聊聊";
     
+    self.delegate = self;
+    self.dataSource = self;
+
+    
+    [self didLogin];
+    
 }
+
+- (void)didLogin{
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults valueForKey:@"username"] == nil) {
+        UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController * login = [board instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self presentViewController:login animated:YES completion:^{
+            
+        }];
+    }else{
+    
+        
+        
+    }
+    
+}
+
+#pragma mark - EMDelegate
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

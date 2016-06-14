@@ -17,13 +17,13 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-
+#import <SVProgressHUD/SVProgressHUD.h>
 //#import "ChatDemoUIDefine.h"
 //#import "EMAlertView.h"
 //#import "TTGlobalUICommon.h"
 //
-//#import "EMSDKFull.h"
-//#import "EaseUI.h"
+#import "EMSDKFull.h"
+#import "EaseUI.h"
 
 #define screenFrame [UIScreen mainScreen].bounds
 // 颜色

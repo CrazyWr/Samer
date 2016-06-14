@@ -18,7 +18,7 @@
  *  @param success 成功块
  *  @param failure 失败块
  */
-- (void)requestWithSuccess:(void (^)(id))success failure:(void (^)(NSError *error))failure;
+- (void)requestWithSuccess:(void (^)(id data))success failure:(void (^)(NSError *error))failure;
 
 /**
  *  @brief 网路类型判断
