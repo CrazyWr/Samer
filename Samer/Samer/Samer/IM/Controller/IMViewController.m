@@ -8,7 +8,7 @@
 
 #import "IMViewController.h"
 #import "LoginViewController.h"
-
+#import "MyNavigationViewController.h"
 
 @interface IMViewController ()<EaseConversationListViewControllerDelegate, EaseConversationListViewControllerDataSource>
 
@@ -38,7 +38,8 @@
     if ([defaults valueForKey:@"username"] == nil) {
         UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         LoginViewController * login = [board instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        [self presentViewController:login animated:YES completion:^{
+        MyNavigationViewController *nv = [[MyNavigationViewController alloc] initWithRootViewController:login];
+        [self presentViewController:nv animated:YES completion:^{
             
         }];
     }else{

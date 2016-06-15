@@ -26,6 +26,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"登陆";
+
     self.username_textField.delegate = self;
     self.passwordTextField.delegate = self;
     

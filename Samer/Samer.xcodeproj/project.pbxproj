@@ -239,6 +239,7 @@
 		8214E88F1D0D456E0097AACE /* weather_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8214E8801D0D456E0097AACE /* weather_default@2x.png */; };
 		8214E8921D0D4D770097AACE /* share_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8214E8901D0D4D770097AACE /* share_normal@2x.png */; };
 		8214E8931D0D4D770097AACE /* share_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8214E8911D0D4D770097AACE /* share_pressed@2x.png */; };
+		8222D6CB1D110BDD002D453E /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8222D6CA1D110BDD002D453E /* RegistViewController.m */; };
 		82607ED11CF7EDB1004326E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82607ED01CF7EDB1004326E0 /* main.m */; };
 		82607ED41CF7EDB1004326E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82607ED31CF7EDB1004326E0 /* AppDelegate.m */; };
 		82607ED61CF7EDB1004326E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82607ED51CF7EDB1004326E0 /* Assets.xcassets */; };
@@ -830,6 +831,8 @@
 		8214E8801D0D456E0097AACE /* weather_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather_default@2x.png"; sourceTree = "<group>"; };
 		8214E8901D0D4D770097AACE /* share_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_normal@2x.png"; sourceTree = "<group>"; };
 		8214E8911D0D4D770097AACE /* share_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_pressed@2x.png"; sourceTree = "<group>"; };
+		8222D6C91D110BDD002D453E /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		8222D6CA1D110BDD002D453E /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		82607ECC1CF7EDB1004326E0 /* Samer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Samer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82607ED01CF7EDB1004326E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82607ED21CF7EDB1004326E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1959,6 +1962,8 @@
 			children = (
 				79D5A8401D02B59000BE9A8B /* LoginViewController.h */,
 				79D5A8411D02B59000BE9A8B /* LoginViewController.m */,
+				8222D6C91D110BDD002D453E /* RegistViewController.h */,
+				8222D6CA1D110BDD002D453E /* RegistViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3447,6 +3452,7 @@
 				82F467F41D0FF9C800B62E4F /* EaseMessageCell.m in Sources */,
 				8294359F1D0EA794002638ED /* MJRefreshStateHeader.m in Sources */,
 				79D5A9381D03181A00BE9A8B /* CircularProgressView.m in Sources */,
+				8222D6CB1D110BDD002D453E /* RegistViewController.m in Sources */,
 				8261165E1D01592800F4D8B0 /* UpdatePasswordStore.m in Sources */,
 				82F467E71D0FF9C800B62E4F /* EaseEmojiEmoticons.m in Sources */,
 				8214E8511D0D33C60097AACE /* WebViewController.m in Sources */,
